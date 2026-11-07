@@ -57,6 +57,9 @@ dotnet user-secrets set "Seed:Password" "choose-a-demo-password"
 
 # 2. Run: migrations are applied and the demo accounts are created on startup
 dotnet run --launch-profile http
+
+# or with hot reload during development
+dotnet watch run --launch-profile http
 ```
 
 Open <http://localhost:5183>.
