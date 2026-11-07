@@ -37,13 +37,13 @@ namespace QRCertificateSystem.Services
             }
 
             await EnsureUserAsync(
-                _configuration["Seed:SuperAdminEmail"] ?? "superadmin@demo.local",
+                _configuration["Seed:SuperAdminEmail"] ?? "superadmin@demo.com",
                 "Super", "Admin", UserRole.SuperAdmin, universityId: null, password);
 
             if (await _context.Universities.AnyAsync(u => u.Id == DemoUniversityId))
             {
                 await EnsureUserAsync(
-                    _configuration["Seed:UniversityAdminEmail"] ?? "admin@duzce.demo.local",
+                    _configuration["Seed:UniversityAdminEmail"] ?? "admin@demo.com",
                     "University", "Admin", UserRole.UniversityAdmin, DemoUniversityId, password);
             }
         }

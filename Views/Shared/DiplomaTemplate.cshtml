@@ -94,10 +94,8 @@
             color: #2d3748;
         }
         .qr-box {
-            position: absolute;
-            bottom: 24px;
-            right: 24px;
             text-align: center;
+            flex-shrink: 0;
         }
         .qr-box img {
             width: 140px;
@@ -109,11 +107,13 @@
         .signatures {
             display: flex;
             justify-content: space-between;
-            margin-top: 50px;
+            align-items: flex-end;
+            gap: 24px;
+            margin-top: 40px;
         }
         .sig {
             text-align: center;
-            width: 45%;
+            flex: 1;
         }
         .sig .line {
             margin-top: 50px;
@@ -214,15 +214,14 @@
                         <div>__________________________</div>
                         <div class="mt-2">Dean / Registrar</div>
                     </div>
+                    <div class="qr-box">
+                        <img src="/api/certificate/qrcode/@Model.CertificateId" alt="QR Code" />
+                        <div class="mt-2 small text-muted">Scan to verify</div>
+                    </div>
                     <div class="sig">
                         <div>__________________________</div>
                         <div class="mt-2">Faculty Advisor</div>
                     </div>
-                </div>
-
-                <div class="qr-box">
-                    <img src="/api/certificate/qrcode/@Model.CertificateId" alt="QR Code" />
-                    <div class="mt-2 small text-muted">Scan to verify</div>
                 </div>
             </div>
         </div>

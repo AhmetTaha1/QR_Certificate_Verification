@@ -67,7 +67,7 @@
             border: 2px solid #667eea;
             color: #667eea;
             border-radius: 15px;
-            padding: 12px 30px;
+            padding: 12px 20px;
             font-weight: 600;
             transition: all 0.3s ease;
         }
@@ -103,7 +103,7 @@
                 <div class="auth-container">
                     <div class="auth-header">
                         <div class="floating">
-                            <i class="fas fa-shield-check fa-4x mb-3"></i>
+                            <i class="fas fa-shield-halved fa-4x mb-3"></i>
                         </div>
                         <h2 class="mb-2">Welcome</h2>
                         <p class="mb-0 opacity-90">Sign in to QR Certificate System</p>
@@ -157,20 +157,26 @@
                         <hr class="my-4">
 
                         <div class="text-center">
-                            <p class="text-muted mb-3">Don't have an account yet?</p>
-                            <a href="/Account/Register" class="btn btn-outline-primary">
-                                <i class="fas fa-user-plus me-2"></i>Student Registration
-                            </a>
-                            <a href="/Account/RegisterUniversity" class="btn btn-outline-secondary ms-2">
-                                <i class="fas fa-university me-2"></i>University Application
-                            </a>
+                            <p class="text-muted mb-3">Don't have an account yet? Register as a</p>
+                            <div class="row g-2">
+                                <div class="col-sm-6">
+                                    <a href="/Account/Register" class="btn btn-outline-primary w-100 text-nowrap">
+                                        <i class="fas fa-user-graduate me-2"></i>Student
+                                    </a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a href="/Account/RegisterUniversity" class="btn btn-outline-primary w-100 text-nowrap">
+                                        <i class="fas fa-building-columns me-2"></i>University
+                                    </a>
+                                </div>
+                            </div>
                         </div>
 
                     </div>
                 </div>
 
                 <div class="text-center mt-4">
-                    <a href="/" class="btn btn-outline-light btn-lg">
+                    <a href="/" class="btn btn-outline-light px-4">
                         <i class="fas fa-home me-2"></i>Back to Home
                     </a>
                 </div>

@@ -53,7 +53,7 @@ cd QR_Certificate_Verification
 # 1. Configuration (stored outside the repository)
 dotnet user-secrets set "ConnectionStrings:DefaultConnection" "Host=localhost;Database=qrcertificatedb;Username=postgres;Password=postgres"
 dotnet user-secrets set "CertificateSigning:Key" "$(openssl rand -base64 48)"
-dotnet user-secrets set "Seed:Password" "choose-a-demo-password"
+dotnet user-secrets set "Seed:Password" "admin123"
 
 # 2. Run: migrations are applied and the demo accounts are created on startup
 dotnet run --launch-profile http
@@ -66,8 +66,8 @@ Open <http://localhost:5183>.
 
 | Demo account | Email | Password |
 |---|---|---|
-| Super Admin | `superadmin@demo.local` | value of `Seed:Password` |
-| University Admin (Düzce Üniversitesi) | `admin@duzce.demo.local` | value of `Seed:Password` |
+| Super Admin | `superadmin@demo.com` | `admin123` (value of `Seed:Password`) |
+| University Admin (Düzce Üniversitesi) | `admin@demo.com` | `admin123` (value of `Seed:Password`) |
 
 Students sign up at `/Account/Register`. New universities apply at `/Account/RegisterUniversity` and appear in the Super Admin panel for approval.
 

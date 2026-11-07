@@ -110,7 +110,11 @@
             font-weight: 600;
             transition: all 0.3s ease;
             text-decoration: none;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 210px;
+            white-space: nowrap;
         }
 
         .btn-back:hover {
@@ -299,7 +303,7 @@
                                 <i class="fas fa-calendar-plus text-success"></i>
                                 Account Created
                             </span>
-                            <span class="info-value">@Model.CreatedAt.ToLocalTime().ToString("MMMM dd, yyyy")</span>
+                            <span class="info-value">@Model.CreatedAt.ToString("MMMM dd, yyyy", System.Globalization.CultureInfo.InvariantCulture)</span>
                         </div>
 
                         @if (Model.LastLoginAt.HasValue)
@@ -309,7 +313,7 @@
                                     <i class="fas fa-sign-in-alt text-info"></i>
                                     Last Login
                                 </span>
-                                <span class="info-value">@Model.LastLoginAt.Value.ToLocalTime().ToString("MMMM dd, yyyy HH:mm")</span>
+                                <span class="info-value">@Model.LastLoginAt.Value.ToString("MMMM dd, yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture) UTC</span>
                             </div>
                         }
 
@@ -332,7 +336,7 @@
 
                         <div class="info-row">
                             <span class="info-label">
-                                <i class="fas fa-envelope-check text-info"></i>
+                                <i class="fas fa-envelope-circle-check text-info"></i>
                                 Email Verified
                             </span>
                             <span class="info-value">
