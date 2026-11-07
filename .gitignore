@@ -8,3 +8,7 @@ obj/
 TestResults/
 appsettings.*.local.json
 .env
+
+# local test artifacts (curl cookie jars etc.)
+*.jar
+*.cookies

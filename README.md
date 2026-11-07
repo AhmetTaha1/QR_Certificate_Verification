@@ -2,7 +2,7 @@
 
 A multi-tenant ASP.NET Core MVC application in which universities issue **digitally signed certificates**, students keep them in their account, and anyone can check whether a certificate is genuine by scanning the QR code printed on it.
 
-![.NET](https://img.shields.io/badge/.NET-9.0-512BD4) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-EF%20Core-336791)
+[![CI](https://github.com/AhmetTaha1/QR_Certificate_Verification/actions/workflows/ci.yml/badge.svg)](https://github.com/AhmetTaha1/QR_Certificate_Verification/actions/workflows/ci.yml) ![.NET](https://img.shields.io/badge/.NET-9.0-512BD4) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-EF%20Core-336791)
 
 ## Features
 
