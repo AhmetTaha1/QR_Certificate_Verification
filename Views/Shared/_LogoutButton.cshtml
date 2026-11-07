@@ -1,0 +1,8 @@
+@model string
+@* Logout is a POST with an antiforgery token so that other sites cannot sign users out via a link. *@
+<form method="post" action="/Account/Logout" class="d-inline m-0">
+    @Html.AntiForgeryToken()
+    <button type="submit" class="@Model">
+        <i class="fas fa-sign-out-alt"></i> Logout
+    </button>
+</form>

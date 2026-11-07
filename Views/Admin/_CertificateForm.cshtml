@@ -1,0 +1,121 @@
+@model CertificateFormModel
+@{
+    var students = ViewBag.Students as List<Student> ?? new List<Student>();
+    string action = ViewData["FormAction"] as string ?? "/Admin/Create";
+    string submitLabel = ViewData["SubmitLabel"] as string ?? "Save";
+}
+
+<form method="post" action="@action" id="certificateForm">
+    @Html.AntiForgeryToken()
+
+    <div class="mb-3">
+        <label class="form-label">
+            <i class="fas fa-university me-2 text-primary"></i>
+            Institution
+        </label>
+        <input type="text" class="form-control" value="@ViewBag.UniversityName" disabled>
+        <small class="text-muted">Certificates are always issued in the name of your university.</small>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="studentId">
+            <i class="fas fa-link me-2 text-primary"></i>
+            Registered Student (optional)
+        </label>
+        <select class="form-select" name="StudentId" id="studentId">
+            <option value="">Not linked to an account</option>
+            @foreach (var st in students)
+            {
+                <option value="@st.Id" data-name="@st.User.FullName" selected="@(Model.StudentId == st.Id)">
+                    @st.User.FullName &ndash; @st.StudentNumber (@st.User.Email)
+                </option>
+            }
+        </select>
+        <small class="text-muted">Linked certificates appear on the student's "My Certificates" page.</small>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label class="form-label" for="studentName">
+                <i class="fas fa-user me-2 text-primary"></i>
+                Name on Certificate
+            </label>
+            <input type="text" class="form-control" name="StudentName" id="studentName" maxlength="200"
+                   placeholder="Defaults to the linked student's name" value="@Model.StudentName">
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label class="form-label" for="department">
+                <i class="fas fa-tag me-2 text-primary"></i>
+                Department <span class="text-danger">*</span>
+            </label>
+            <input type="text" class="form-control" name="Department" id="department" required maxlength="200"
+                   placeholder="e.g., Computer Engineering" value="@Model.Department">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label class="form-label" for="degree">
+                <i class="fas fa-graduation-cap me-2 text-primary"></i>
+                Degree <span class="text-danger">*</span>
+            </label>
+            <select class="form-select" name="Degree" id="degree" required>
+                <option value="">Select...</option>
+                @foreach (var degree in CertificateFormModel.AllowedDegrees)
+                {
+                    <option value="@degree" selected="@(Model.Degree == degree)">@degree</option>
+                }
+            </select>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label class="form-label" for="issueDate">
+                <i class="fas fa-calendar me-2 text-primary"></i>
+                Issue Date <span class="text-danger">*</span>
+            </label>
+            <input type="date" class="form-control" name="IssueDate" id="issueDate" required
+                   max="@DateTime.UtcNow.ToString("yyyy-MM-dd")" value="@Model.IssueDate.ToString("yyyy-MM-dd")">
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label class="form-label" for="gpa">
+                <i class="fas fa-star me-2 text-primary"></i>
+                GPA (0.00 - 4.00)
+            </label>
+            <input type="number" class="form-control" name="Gpa" id="gpa" step="0.01" min="0" max="4"
+                   placeholder="e.g., 3.50" value="@Model.Gpa">
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="notes">
+            <i class="fas fa-sticky-note me-2 text-primary"></i>
+            Notes (internal, not shown on the verification page)
+        </label>
+        <textarea class="form-control" name="Notes" id="notes" rows="3" maxlength="500">@Model.Notes</textarea>
+    </div>
+
+    <div class="d-flex gap-3 mt-4">
+        <a href="/Admin" class="btn btn-back">
+            <i class="fas fa-arrow-left me-2"></i>
+            Back
+        </a>
+        <button type="submit" class="btn btn-submit">
+            <i class="fas fa-save me-2"></i>
+            @submitLabel
+        </button>
+    </div>
+</form>
+
+<script>
+    // A certificate needs a name: either typed in or taken from the linked student.
+    document.getElementById('certificateForm').addEventListener('submit', function (e) {
+        const name = document.getElementById('studentName').value.trim();
+        const student = document.getElementById('studentId').value;
+        if (!name && !student) {
+            e.preventDefault();
+            alert('Enter a name or select a registered student.');
+        }
+    });
+</script>

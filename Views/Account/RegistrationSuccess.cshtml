@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful - QR Certificate System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .success-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .success-icon {
+            color: #28a745;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="success-card">
+                    <i class="fas fa-check-circle success-icon"></i>
+                    <h2 class="text-success mb-4">Registration Successful!</h2>
+
+                    <div class="alert alert-info">
+                        <h5><i class="fas fa-clock"></i> What's Next?</h5>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2"><i class="fas fa-user-shield text-warning"></i> The platform administrator reviews your application</li>
+                            <li><i class="fas fa-sign-in-alt text-success"></i> Once approved, sign in with the email and password you provided</li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-4">
+                        <a href="/Account/Login" class="btn btn-primary btn-lg">
+                            <i class="fas fa-sign-in-alt"></i> Back to Login
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

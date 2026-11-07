@@ -1,0 +1,9 @@
+@host = http://localhost:5183
+@certificateId = CERT-2026-000000000000
+
+### Machine-readable verification result
+GET {{host}}/api/certificate/verify/{{certificateId}}
+Accept: application/json
+
+### QR code (PNG) pointing to the public verification page
+GET {{host}}/api/certificate/qrcode/{{certificateId}}

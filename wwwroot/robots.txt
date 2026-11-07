@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /Admin
+Disallow: /SuperAdmin
+Disallow: /Student
+Disallow: /Account
